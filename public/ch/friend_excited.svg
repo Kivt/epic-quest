@@ -1,0 +1,50 @@
+<svg width="200" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Character: Friend (Alex) - Excited pose -->
+  
+  <!-- Body -->
+  <rect x="75" y="200" width="50" height="120" fill="#F4A460" stroke="#D2691E" stroke-width="2" rx="10"/>
+  
+  <!-- Casual shirt -->
+  <rect x="70" y="200" width="60" height="80" fill="#32CD32" stroke="#228B22" stroke-width="1" rx="5"/>
+  
+  <!-- Arms (raised excitedly) -->
+  <rect x="40" y="180" width="20" height="60" fill="#F4A460" stroke="#D2691E" stroke-width="1" rx="10" transform="rotate(-30 50 210)"/>
+  <rect x="140" y="180" width="20" height="60" fill="#F4A460" stroke="#D2691E" stroke-width="1" rx="10" transform="rotate(30 150 210)"/>
+  
+  <!-- Legs -->
+  <rect x="80" y="280" width="15" height="80" fill="#4169E1" rx="7"/>
+  <rect x="105" y="280" width="15" height="80" fill="#4169E1" rx="7"/>
+  
+  <!-- Shoes -->
+  <rect x="75" y="355" width="25" height="15" fill="#8B4513" rx="7"/>
+  <rect x="100" y="355" width="25" height="15" fill="#8B4513" rx="7"/>
+  
+  <!-- Head -->
+  <circle cx="100" cy="120" r="40" fill="#F4A460" stroke="#D2691E" stroke-width="2"/>
+  
+  <!-- Hair (messy style, more animated) -->
+  <path d="M 65 100 Q 80 65 100 70 Q 120 65 135 100 Q 125 75 100 80 Q 75 75 65 100" fill="#FF8C00"/>
+  
+  <!-- Eyes (excited/wide) -->
+  <circle cx="85" cy="115" r="6" fill="#FFF" stroke="#000" stroke-width="2"/>
+  <circle cx="115" cy="115" r="6" fill="#FFF" stroke="#000" stroke-width="2"/>
+  <circle cx="85" cy="115" r="4" fill="#000"/>
+  <circle cx="115" cy="115" r="4" fill="#000"/>
+  <circle cx="87" cy="113" r="1" fill="#FFF"/>
+  <circle cx="117" cy="113" r="1" fill="#FFF"/>
+  
+  <!-- Nose -->
+  <circle cx="100" cy="125" r="1" fill="#D2691E"/>
+  
+  <!-- Mouth (big excited smile) -->
+  <path d="M 85 135 Q 100 150 115 135" stroke="#000" stroke-width="2" fill="none"/>
+  
+  <!-- Excitement lines -->
+  <line x1="130" y1="100" x2="140" y2="90" stroke="#FFD700" stroke-width="2"/>
+  <line x1="135" y1="110" x2="145" y2="105" stroke="#FFD700" stroke-width="2"/>
+  <line x1="70" y1="100" x2="60" y2="90" stroke="#FFD700" stroke-width="2"/>
+  <line x1="65" y1="110" x2="55" y2="105" stroke="#FFD700" stroke-width="2"/>
+  
+  <!-- Name label -->
+  <text x="100" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Alex - Excited</text>
+</svg>
