@@ -11,8 +11,7 @@
     "test": "vitest",
     "test:run": "vitest run",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "deploy": "gh-pages -d dist"
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "vue": "^3.5.21"
