@@ -5,14 +5,6 @@ import green_box from './scenes/green_box'
 import cafe from './scenes/cafe'
 import gardenia from './scenes/gardenia'
 
-// Room - explain rules
-// котики
-// зелений Якщик
-// Перевірити чи є Трубочки
-// підкріпитися перед фіналом
-// Перемогти чаклуна
-// Отримати винагороду вдома
-
 const story: Story = {
     version: "1.0",
     meta: {
