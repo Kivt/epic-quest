@@ -147,7 +147,21 @@ const scene: Scene = {
                     {
                         type: "say",
                         speaker: 'mouse',
-                        text: "Зараз згадаю як називається це місце де вона знаходиться...",
+                        text: "Недавно спілкувалися з братом сестри дітей мого чоловіка, то в нього є 18 дітей...",
+                    },
+                ],
+                [
+                    {
+                        type: "say",
+                        speaker: 'mouse',
+                        text: "ото колишня дівчина другого старшого сина працювала з мишкою, яка була в логові відьми",
+                    },
+                ],
+                [
+                    {
+                        type: "say",
+                        speaker: 'mouse',
+                        text: "Зараз згадаю як називається це місце ...",
                     },
                 ],
                 [
@@ -172,13 +186,55 @@ const scene: Scene = {
                     },
                 ],
                 [
+                    { type: "hideCharacter", id: "mouse" },
+                    {
+                        type: "showCharacter",
+                        slot: "center",
+                        id: "vitalik",
+                        pose: "default",
+                    },
                     {
                         type: "say",
-                        speaker: 'mouse',
-                        text: "А я, нажаль, його не знаю",
+                        speaker: 'vitalik',
+                        text: "Експекто потронум мазафака ?",
                     },
                 ],
                 [
+                    { type: "hideCharacter", id: "vitalik" },
+                    {
+                        type: "showCharacter",
+                        slot: "center",
+                        id: "mouse",
+                        pose: "default",
+                    },
+                    {
+                        type: "say",
+                        speaker: 'mouse',
+                        text: "я, нажаль, не знаю заклинання яке вам потрібне",
+                    },
+                ],
+                [
+                    { type: "hideCharacter", id: "mouse" },
+                    {
+                        type: "showCharacter",
+                        slot: "center",
+                        id: "vitalik",
+                        pose: "idk",
+                    },
+                    {
+                        type: "say",
+                        speaker: 'mouse',
+                        text: "Пі-пі-пі-піздец",
+                    },
+                ],
+                [
+                    { type: "hideCharacter", id: "vitalik" },
+                    {
+                        type: "showCharacter",
+                        slot: "center",
+                        id: "mouse",
+                        pose: "default",
+                    },
                     {
                         type: "say",
                         speaker: 'mouse',
