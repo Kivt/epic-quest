@@ -11,7 +11,7 @@
         :style="entry.style"
       >
         <img
-          :src="`../../public${entry.imageUrl}`"
+          :src="entry.imageUrl"
           :alt="entry.name"
           class="character-image"
           @error="handleImageError"
@@ -25,6 +25,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import type { Story, UISlot, CharId, PoseId } from "../types/story";
+import { getImageUrl } from '../utils/imageLoader';
 
 interface CharacterState {
   id: CharId;
@@ -75,7 +76,8 @@ const getCharacterImageUrl = (character: CharacterState): string => {
     return "";
   }
 
-  return poseUrl;
+  // Use the image loader utility
+  return getImageUrl(poseUrl);
 };
 
 const getCharacterName = (characterId: CharId): string => {
@@ -173,7 +175,7 @@ const handleImageLoad = (event: Event) => {
   /* Flexible sizing - single character takes full width, multiple share space */
   width: 100%;
   max-width: 280px;
-  height: 320px;
+  height: 350px!important;
   object-fit: contain;
   object-position: center bottom;
   opacity: 0;

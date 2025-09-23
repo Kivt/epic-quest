@@ -256,20 +256,20 @@ const navigateToPosition = (sceneIndex: number, slideIndex: number = 0, stepInde
 const backgroundTransition = ref<'fade' | 'cut' | 'slide' | 'flash'>('fade')
 
 // Event handlers for child components
-const onBackgroundLoaded = (url: string) => {
-    console.log('Background loaded:', url)
+const onBackgroundLoaded = () => {
+    // Background loaded successfully
 }
 
-const onBackgroundError = (url: string) => {
-    console.error('Background failed to load:', url)
+const onBackgroundError = () => {
+    // Background failed to load
 }
 
 const onBackgroundTransitionComplete = () => {
-    console.log('Background transition complete')
+    // Background transition complete
 }
 
 const onTextBoxShowComplete = () => {
-    console.log('Text box show animation complete')
+    // Text box show animation complete
 }
 
 // Expose functions for testing
@@ -285,7 +285,7 @@ defineExpose({
 })
 
 const onTextBoxHideComplete = () => {
-    console.log('Text box hide animation complete')
+    // Text box hide animation complete
 }
 </script>
 

@@ -8,7 +8,7 @@
     >
       <img
         :key="imageUrl || 'fallback'"
-        :src="`../../public${displayImageUrl}`"
+        :src="displayImageUrl"
         :alt="imageAlt"
         class="background-image"
         :style="{ filter: blur > 0 ? `blur(${blur}px)` : 'none' }"
@@ -20,79 +20,92 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch } from "vue";
+import { getImageUrl } from "../utils/imageLoader";
 
 interface Props {
-  imageUrl?: string
-  transition?: 'fade' | 'cut' | 'slide' | 'flash'
-  fallbackUrl?: string
-  blur?: number
+  imageUrl?: string;
+  transition?: "fade" | "cut" | "slide" | "flash";
+  fallbackUrl?: string;
+  blur?: number;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-    transition: 'fade',
-    fallbackUrl: '/bg/default.svg',
-    blur: 0
-})
+  transition: "fade",
+  fallbackUrl: "/bg/default.svg",
+  blur: 0,
+});
 
 const emit = defineEmits<{
-  imageLoaded: [url: string]
-  imageError: [url: string]
-  transitionComplete: []
-}>()
+  imageLoaded: [url: string];
+  imageError: [url: string];
+  transitionComplete: [];
+}>();
 
-const imageLoadError = ref(false)
-const isLoading = ref(false)
+const imageLoadError = ref(false);
+const isLoading = ref(false);
 
 const displayImageUrl = computed(() => {
-    if (!props.imageUrl) {
-        return props.fallbackUrl
-    }
-    return imageLoadError.value ? props.fallbackUrl : props.imageUrl
-})
+  const targetUrl =
+    !props.imageUrl || imageLoadError.value
+      ? props.fallbackUrl
+      : props.imageUrl;
+
+  const result = getImageUrl(targetUrl);
+
+  if (!result) {
+    // Final fallback - return a default image path
+    return getImageUrl("/bg/default.svg") || "";
+  }
+
+  return result;
+});
 
 const imageAlt = computed(() => {
-    if (!props.imageUrl) {
-        return 'Default background'
-    }
-    return imageLoadError.value ? 'Fallback background' : 'Scene background'
-})
+  if (!props.imageUrl) {
+    return "Default background";
+  }
+  return imageLoadError.value ? "Fallback background" : "Scene background";
+});
 
 // Reset error state when imageUrl changes
-watch(() => props.imageUrl, () => {
-    imageLoadError.value = false
-    isLoading.value = true
-})
+watch(
+  () => props.imageUrl,
+  () => {
+    imageLoadError.value = false;
+    isLoading.value = true;
+  }
+);
 
 const onImageLoad = (event: Event) => {
-    const target = event.target as HTMLImageElement
-    isLoading.value = false
-    imageLoadError.value = false
-    emit('imageLoaded', target.src)
-}
+  const target = event.target as HTMLImageElement;
+  isLoading.value = false;
+  imageLoadError.value = false;
+  emit("imageLoaded", target.src);
+};
 
 const onImageError = (event: Event) => {
-    const target = event.target as HTMLImageElement
-    isLoading.value = false
-  
-    // Only set error if we're not already showing fallback
-    if (target.src !== props.fallbackUrl) {
-        imageLoadError.value = true
-        emit('imageError', target.src)
-    }
-}
+  const target = event.target as HTMLImageElement;
+  isLoading.value = false;
+
+  // Only set error if we're not already showing fallback
+  if (target.src !== props.fallbackUrl) {
+    imageLoadError.value = true;
+    emit("imageError", target.src);
+  }
+};
 
 const onEnter = () => {
-    // Animation enter hook - can be used for custom transition logic
-}
+  // Animation enter hook - can be used for custom transition logic
+};
 
 const onLeave = (_el: Element, done: () => void) => {
-    // Animation leave hook
-    setTimeout(() => {
-        done()
-        emit('transitionComplete')
-    }, 300) // Match CSS transition duration
-}
+  // Animation leave hook
+  setTimeout(() => {
+    done();
+    emit("transitionComplete");
+  }, 300); // Match CSS transition duration
+};
 </script>
 
 <style scoped>

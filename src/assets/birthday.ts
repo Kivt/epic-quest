@@ -20,7 +20,8 @@ const story: Story = {
             green_box: '/bg/green_box.avif',
             cafe: '/bg/cafe.avif',
             cafe_inside: '/bg/cafe_inside.avif',
-            gardenia: '/bg/gardenia.avif'
+            gardenia: '/bg/gardenia.avif',
+            yard: '/bg/yard.avif'
         },
         characters: {
             unknown: {

@@ -8,21 +8,21 @@ const scene: Scene = {
             id: 'k1',
             initial: {
                 inherit: false,
-                background: "nature",
-                backgroundBlur: 3,
+                background: "yard",
+                backgroundBlur: 0,
                 textbox: {
                     speaker: 'vitalik',
                 }
             },
             steps: [
                 [
-                    // Фото котів біля 2 підїзду
                     {
                         type: "say",
                         text: "Одягайся і знайди це місце біля будинку поруч (завдання)",
                     },
                 ],
                 [
+                    { type: "setBackground", id: "yard", blur: 3 },
                     {
                         type: "showCharacter",
                         slot: "center",
@@ -164,7 +164,7 @@ const scene: Scene = {
                     { type: "hideCharacter", id: "vitalik" },
                 ],
                 [
-                    { type: "setBackground", id: "nature", blur: 3 },
+                    { type: "setBackground", id: "yard", blur: 3 },
                     {
                         type: "showCharacter",
                         slot: "center",
