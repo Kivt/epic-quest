@@ -11,7 +11,7 @@
         :style="entry.style"
       >
         <img
-          :src="entry.imageUrl"
+          :src="`../../public${entry.imageUrl}`"
           :alt="entry.name"
           class="character-image"
           @error="handleImageError"

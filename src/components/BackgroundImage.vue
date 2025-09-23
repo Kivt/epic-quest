@@ -8,7 +8,7 @@
     >
       <img
         :key="imageUrl || 'fallback'"
-        :src="displayImageUrl"
+        :src="`../../public${displayImageUrl}`"
         :alt="imageAlt"
         class="background-image"
         :style="{ filter: blur > 0 ? `blur(${blur}px)` : 'none' }"
